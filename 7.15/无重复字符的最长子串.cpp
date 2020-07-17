@@ -26,6 +26,14 @@ int main()
     bool ascii[127]{false};
     int left=0,right=0,max=0;
     cin>>s;
+    while (right<s.length())
+    {
+      if(!ascii[s[right]])
+        ascii[s[right++]]=true;
+      else 
+        ascii[s[left++]]=false;
+      max=right-left<max?max:right-left;
+    }
     cout<<max;
     system("pause");
     return 0;
