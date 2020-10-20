@@ -1,16 +1,15 @@
-#include<iostream>
-#include<map>
+#include<bits/stdc++.h>
 using namespace std;
 int main()
 {
     map<string,int>m;//map可以把字符串当作下标
     string s,maxs;
-    int n,max=0;cin>>n;
+    int n,max=0;scanf("%d",&n);
     while(n)
     {
         while(n--)
         {
-            cin>>s;
+            scanf("%s",s);
             if(m.find(s)!=m.end())
             { 
                 m[s]=m[s]+1;
@@ -23,8 +22,8 @@ int main()
             }
         }
         max=0;m.clear(); 
-        cout<<maxs<<endl;
-        cin>>n;
+        printf("%s\n",maxs);
+        scanf("%d",&n);
     }
     cin.get();
     cin.get();
