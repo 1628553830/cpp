@@ -1,19 +1,21 @@
 #include<stdio.h>
-#include<stdlib.h>
 int main()
 {
-    int a,b,n,f1=1,f2=1,fn;
+    int a,b,n,f[100]{0,1,1};
+    bool flag=false;
     scanf("%d%d%d",&a,&b,&n);
     while(a||b||n)
     {
-        for(int i=2;i<n;i++)
+        for(int i=3;i<=n;i++)
         {
-           fn=(f2*a+f1*b)%7;
-           f1=f2;f2=fn;
+           f[i]=(f[i-2]*b+f[i-1]*a)%7;
+           for(int j=2;j<=i-2;j++)
+              if(f[i]==f[j]&&f[i-1]==f[j-1])
+              {printf("%d\n",f[j-1+(n-i+1)%(i-j)]);flag=true;break;}
+           if(flag)break;
         }
-        printf("%d\n",fn);
+        if(!flag)printf("%d\n",f[n]);
         scanf("%d%d%d",&a,&b,&n);
-        f1=f2=1;
+        flag=false;
     }
-    system("pause");
 }

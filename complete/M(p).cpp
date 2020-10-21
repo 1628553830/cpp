@@ -2,10 +2,11 @@
 using namespace std;
 int main()
 {
-    string a[100];
+    string a[10000];
     int n,m;
-    cin>>n>>m;
-    for(int i=0;i<n;i++)
+    while(cin>>n>>m)
+    { 
+      for(int i=0;i<n;i++)
        cin>>a[i];
     for(int i=0;i<n;i++)
     {
@@ -15,6 +16,7 @@ int main()
       cout<<a[i];
     }
     cout<<endl;
+    }
     cin.get();
     cin.get();
 }
