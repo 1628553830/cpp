@@ -1,11 +1,11 @@
 #include<iostream>
-#include<iomanip>
 using namespace std;
 int main()
 {
-    double a=360.001;
-    
-    cout<<(int)a/360*360;
+    double a;
+    cin>>a;
+    double b=a/360*360;
+    cout<<(int)a/360*360<<endl<<(int)b;
     cin.get();
     cin.get();
 }

@@ -2,26 +2,33 @@
 using namespace std;
 int main()
 {
-    int n;
-    double a=0,t=0,miao,fen,shi;
+    int n,q=0;
+    double miao=0,fen,shi,t1,t2,t3,t4,ans=0;
     cin>>n;
     while(n<=120&&n>=0)
     {
-        //模拟时钟
-        while(shi<360)
+        //解多次方程
+        while(720/11*(n+q*360)<259200)//用度数来解方程
         {
-            t+=1;
-            miao=t-(int)t/360*360;
-            fen=t/60-(int)t/60/360*360;
-            shi=t/720;
-            if(abs(miao-fen)>=n&&abs(miao-fen+360)>=n&&abs(fen+360-miao)>=n)
-               if(abs(miao-shi)>=n&abs(miao-shi+360)>=n&&abs(shi+360-miao)>=n)
-                  if(abs(fen-shi)>=n&&abs(fen-shi+360)>=n&&abs(shi+360-fen)>=n)
-                     a+=1;
+           t1=720/11*(n+q*360);q++;
+           t2=720/11*(q*360-n);//t1,t2用来确定分针和时针开心的边界,t3,t4用来确定秒针分别与时针和分针的开心边界
+           //用for循环寻找在t1-t2该区间的miao的范围
+           t3=t4=0;
+           
+
+           for(int i=0;t3<259200;i++)
+           {
+               t3=(n+(i*360))*720/719;
+               if(t1<t3&&t3<t2)break;
+           }
+           for(int i=0;t4<259200;i++)
+           {
+               t4=(360*(i+1)-n)*720/719;
+           }
+           
+            
         }
-        printf("%.3lf\n",a/t*100);
-        cin>>n;
-        a=t=shi=0;
+        
     }
     cin.get();
     cin.get();
