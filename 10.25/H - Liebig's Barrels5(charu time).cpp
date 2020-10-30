@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-    int n,k,l,num[10000],x;cin>>n>>k>>l;
+    int n,k,l,num[100000],x;cin>>n>>k>>l;
     long long sum=0;
     for(int i=0,j;i<n*k;i++)
       {
