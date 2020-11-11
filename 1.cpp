@@ -9,11 +9,10 @@ bool check(string a,string b)
 int main()
 {
     string a,b,c;
-    getline(cin,a);
-    getline(cin,b);
+    cin>>a>>b;cin.get();
     getline(cin,c);
     for(int i=0;i<c.length();i++)
-    if(i<a.length()-c.length()&&check(a,c.substr(i,a.length())))
+    if(i<=c.length()-a.length()&&check(a,c.substr(i,a.length())))//a.length()类型为unsignedint
     {
         cout<<b;i+=a.length()-1;
     }
