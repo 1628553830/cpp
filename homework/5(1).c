@@ -6,7 +6,7 @@ int main()
      scanf("%d%d",&N,&M);
      int num[N][M];
      for(int i=0;i<N;i++)
-     for(int j=0;j<M;j++)
+     for(int j=0;j<M;j++) 
      {
          scanf("%d",&num[i][j]);
          if(num[i][j]>num[col][row])
