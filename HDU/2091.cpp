@@ -2,14 +2,30 @@
 using namespace std;
 int main()
 {
-    string a;
-    double sum=0,n,m;
-    cout.precision(1);
-    while(cin>>a>>n>>m)
-    {
-       sum+=n*m;   
+    char a;int b;
+    cin>>a;
+    while(1)
+    {  
+        cin>>b;
+        for(int i=1;i<=b;i++)
+        {
+            for(int j=1;j<=b-i;j++)
+            cout<<" ";
+            if(i==1||i==b)
+               for(int j=1;j<=2*i-1;j++)
+                   cout<<a;
+            else 
+               for(int j=1;j<=2*i-1;j++)
+                   if(j-1&&j-2*i+1)
+                   cout<<" ";
+                   else 
+                   cout<<a;
+            cout<<endl;
+        }
+        cin>>a;
+        if(a!='@')
+        cout<<endl;
+        else
+        break;
     }
-    cout<<fixed<<sum<<endl;
-    cin.get();
-    cin.get();
 }

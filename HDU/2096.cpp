@@ -1,19 +1,12 @@
-#include<iostream>
 #include<stdio.h>
-using namespace std;
 int main()
 {
-    int N,re,x;        
-    cin>>N;
-    while(N)
+    int n,a,b;scanf("%d",&n);
+    for(int i=0;i<n;i++)
     {
-        cin>>re;
-        for(int i=1;i<N;i++)
-        {
-            scanf("%d",&x);
-            re^=x;
-        }
-        cout<<re<<endl;        
-        cin>>N;
+        scanf("%d%D",&a,&b);
+        a%=100;
+        b%=100;
+        printf("%d\n",(a+b)%100);
     }
 }
