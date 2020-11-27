@@ -2,22 +2,13 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "EGE IMAGE",
+            "label": "C/C++: g++.exe build active file",
             "command": "C:\\MinGW\\bin\\g++.exe",
             "args": [
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-lgraphics64",
-                "-luuid",
-                "-lmsimg32",
-                "-lgdi32",
-                "-limm32",
-                "-lole32",
-                "-loleaut32",
-                "-lwinmm",
-                "-lgdiplus"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "C:\\MinGW\\bin"

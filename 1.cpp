@@ -1,22 +1,18 @@
-#include<bits/stdc++.h>
-using namespace std;
-bool check(string a,string b)
-{
-    for(int i=0;i<a.length();i++)a[i]=toupper(a[i]);
-    for(int i=0;i<b.length();i++)b[i]=toupper(b[i]);
-    return a==b;
-}
+#include <graphics.h>					//包含EGE的头文件
+
 int main()
 {
-    string a,b,c;
-    cin>>a>>b;cin.get();
-    getline(cin,c);
-    for(int i=0;i<c.length();i++)
-    if(i<=c.length()-a.length()&&check(a,c.substr(i,a.length())))//a.length()类型为unsignedint
-    {
-        cout<<b;i+=a.length()-1;
-    }
-    else cout<<c[i];
-    cin.get();
-    cin.get();
+	initgraph(640, 480);				//初始化图形界面
+	
+	setcolor(EGERGB(0xFF, 0x0, 0x0));	//设置绘画颜色为红色
+	
+	setbkcolor(WHITE);					//设置背景颜色为白色
+	
+	circle(320, 240, 100);				//画圆
+	
+	getch();							//暂停，等待键盘按键
+
+	closegraph();						//关闭图形界面
+	
+	return 0;
 }
