@@ -1,10 +1,10 @@
-//getch()æ§åˆ¶é£æœº+å¤æ‚çš„é£æœºå›¾æ ·
+//getch()¿ØÖÆ·É»ú+¸´ÔÓµÄ·É»úÍ¼Ñù
 #include<iostream>
 #include<stdlib.h>
 #include<conio.h>
 #include<windows.h>
 using namespace std;
-void show(int,int);//å®šä½é£æœº 
+void show(int,int);//¶¨Î»·É»ú 
 int main()
 {
     int x,y;
@@ -43,11 +43,11 @@ void show(int x,int y)
     cout<<endl;
     for(int j=0;j<x;j++)
     cout<<" ";
-    cout<<"    â˜…    "<<endl;
+    cout<<"    ¡ï    "<<endl;
     for(int j=0;j<x;j++)
     cout<<" ";
-    cout<<"â˜…â˜…â˜…â˜…â˜…"<<endl;
+    cout<<"¡ï¡ï¡ï¡ï¡ï"<<endl;
     for(int j=0;j<x;j++)
     cout<<" ";
-    cout<<"  â˜…  â˜…  "<<endl;
+    cout<<"  ¡ï  ¡ï  "<<endl;
 }

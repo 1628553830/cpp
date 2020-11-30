@@ -1,4 +1,4 @@
-//getch()æŽ§åˆ¶é£žæœº
+//getch()¿ØÖÆ·É»ú
 #include<iostream>
 #include<stdlib.h>
 #include<conio.h>
@@ -43,6 +43,6 @@ void show(int x,int y)
     cout<<endl;
     for(int j=0;j<x;j++)
     cout<<" ";
-    cout<<"â˜…";
+    cout<<"¡ï";
     cout<<endl;
 }

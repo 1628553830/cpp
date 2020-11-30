@@ -1,18 +1,19 @@
-//getch()æ§åˆ¶é£æœº+å¤æ‚çš„é£æœºå›¾æ ·+æ¿€å…‰å‘å°„+ç§»åŠ¨æ ‡é¶
+//getch()¿ØÖÆ·É»ú+¸´ÔÓµÄ·É»úÍ¼Ñù+¼¤¹â·¢Éä
 #include<iostream>
 #include<stdlib.h>
 #include<conio.h>
 #include<windows.h>
 using namespace std;
-void show(int,int,bool);//å®šä½é£æœº 
-void fire(int,int,bool);
+void show(int,int,bool);//¶¨Î»·É»ú 
+int T;
 int main()
 {
     int x,y;
     bool isfire=false;
     char c;
     cin>>x>>y;
-    fire(x,y,isfire); 
+    T=y;
+    show(x,y,isfire); 
     while(1)
     {
        if(kbhit())
@@ -34,17 +35,11 @@ int main()
                break;
        case ' ':isfire=!isfire;
                break;
-       }             
-       fire(x,y,isfire);  
+       }      
+        if(c==' '&&isfire){T=y;while(T--)show(x,y,isfire);}
+        else show(x,y,isfire);
        }       
     }
-}
-void fire(int x,int y,bool isfire)
-{
-   if(isfire)
-   {
-       
-   }
 }
 void show(int x,int y,bool isfire)
 {   
@@ -54,18 +49,20 @@ void show(int x,int y,bool isfire)
         if(!isfire)cout<<endl;
         else 
         {
-            for(int j=0;j<x+4;j++)
+            if(i>=T)
+            {for(int j=0;j<x+4;j++)
             cout<<" ";
-            cout<<"||\n";
+            cout<<"||";}
+            cout<<endl;
         }
     }
     for(int j=0;j<x;j++)
     cout<<" ";    
-    cout<<"    â˜…    "<<endl;
+    cout<<"    ¡ï    "<<endl;
     for(int j=0;j<x;j++)
     cout<<" ";
-    cout<<"â˜…â˜…â˜…â˜…â˜…"<<endl;
+    cout<<"¡ï¡ï¡ï¡ï¡ï"<<endl;
     for(int j=0;j<x;j++)
     cout<<" ";
-    cout<<"  â˜…  â˜…  "<<endl;
+    cout<<"  ¡ï  ¡ï  "<<endl;
 }
