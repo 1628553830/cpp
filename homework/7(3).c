@@ -10,13 +10,20 @@ int main()
   scanf("%s",s);
   F(a,s,ch);
   for(int i=0;a[i];i++)
-  if(i)printf(" %d",a[i]);
-  else printf("%d",a[i]);
-  system("pause");
+  {
+    if(i)
+      printf(" %d",a[i]);
+    else 
+      printf("%d",a[i]);
+  }
+    system("pause");
 }
 void F(int *b,char *s,char a)
 {
-    int ans=0;
+   int ans=0;
    for(int i=0;i<strlen(s);i++)
-   if(s[i]==a)b[ans++]=i+1;
+     {
+       if(s[i]==a)
+       b[ans++]=i+1;
+     }
 }

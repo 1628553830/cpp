@@ -1,8 +1,9 @@
 #include<iostream>
+#include<stdlib.h>
 using namespace std;
 int main()
 {
-    cout<<"ÎÒ";
-    cin.get();
-    cin.get();
+    char a[10]="abcdefg";
+    printf("%6s\n",a);
+    system("pause");
 }
