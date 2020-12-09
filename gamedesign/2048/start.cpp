@@ -3,20 +3,8 @@
 #include<Windows.h>
 #include<stdlib.h>
 #include<time.h>
-#include<iostream>
-using namespace std;
+#include"windowtitle.cpp"
 string str;
-void Wchar_tToString(std::string& szDst, wchar_t*wchar)
-{
-wchar_t * wText = wchar;
-DWORD dwNum = WideCharToMultiByte(CP_OEMCP,NULL,wText,-1,NULL,0,NULL,FALSE);//WideCharToMultiByte的运用
-char *psText;  // psText为char*的临时数组，作为赋值给std::string的中间变量
-psText = new char[dwNum];
-WideCharToMultiByte (CP_OEMCP,NULL,wText,-1,psText,dwNum,NULL,FALSE);//WideCharToMultiByte的再次运用
-szDst = psText;// std::string赋值
-delete []psText;// psText的清除
-}
-
 void startui()
 {
    //初始化背景
@@ -25,14 +13,14 @@ void startui()
    setbkcolor(GREEN);
    setbkmode(TRANSPARENT);
    cleardevice();
-   Wchar_tToString(str,L"2048");
-   SetWindowText(GetHWnd(),(LPCTSTR)str.c_str());
+   windowtitle(L"开始界面");
    //初始化结构体
    LOGFONT f;
+   MOUSEMSG m;
    RECT r{0,0,640,480};
    settextstyle(0,0,_T("Consolas"));
    gettextstyle(&f);
-   f.lfWeight=1000;
+   f.lfWeight=0;
    f.lfWidth=0;
    f.lfQuality=ANTIALIASED_QUALITY;
    
@@ -42,7 +30,7 @@ void startui()
    _tcscpy(f.lfFaceName,_T("黑体"));
    settextstyle(&f);
    drawtext(_T("2"),&r,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
-   Sleep(1000);
+   Sleep(500);
    cleardevice();
    //输出白字20
    settextcolor(WHITE);
@@ -50,7 +38,7 @@ void startui()
    _tcscpy(f.lfFaceName,_T("宋体"));
    settextstyle(&f);
    drawtext(_T("20"),&r,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
-   Sleep(1000);
+   Sleep(500);
    cleardevice();
    //输出蓝字204
    settextcolor(BLUE);
@@ -58,7 +46,7 @@ void startui()
    _tcscpy(f.lfFaceName,_T("楷体"));
    settextstyle(&f);
    drawtext(_T("204"),&r,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
-   Sleep(1000);
+   Sleep(500);
    cleardevice();
    //输出阴影部分
    settextcolor(BLACK);
@@ -69,7 +57,7 @@ void startui()
    //输出红字2048
    settextcolor(RED);
    drawtext(_T("2048"),&r,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
-   Sleep(1000);
+   Sleep(500);
 
    //输出Power by Group 7510
    wchar_t s[23]=L"▂Powered by Group 7510";
@@ -115,6 +103,7 @@ void startui()
        }
        else
        {
+           
            current[21]=L'▂';
            current[22]='\0';
            Wchar_tToString(str,current);
@@ -127,6 +116,6 @@ void startui()
            flag=!flag;
        }
    }
-   _getch();
+   EndBatchDraw();//用完以后一定要记得关闭
    closegraph();
 }
