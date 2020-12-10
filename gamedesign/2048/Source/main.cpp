@@ -20,14 +20,14 @@ extern string str;//用来显示不同数字
 
 void setup();//初始化界面                                  1
 void show();//显示实时动画                                 1
-void drawqipan(int,int);//画棋盘，并实时监测鼠标            1
+void drawqipan(int,int);//画棋盘,按q退出                    1
 void shownewnum();//显示更新后的新棋子弹跳动画               1
-void shownum();//显示旧棋子                                 0
+void shownum();//显示旧棋子                                 1
 void updateWithInput();//输入的更新                        1
 void updateWithoutInput();//不需要输入的更新                1
 int  ReadTopScore();//读取分数                             1
 void gameover();//游戏结束，更新最高分                      1
-bool calulate(int,int);//用来计算实时状态                   0
+bool calulate(int,int);//用来计算实时状态                   1
 bool check();//用来是否能进行下去                           1
 void produce();//用来生成随机数                             1
 
@@ -422,15 +422,21 @@ int  ReadTopScore()
 void gameover()
 {
    show();
-   BeginBatchDraw();
-   bool flag1=false,flag2=false;
+   setfillcolor(RGB(53,129,129));
+   solidrectangle(qipan_x1+15+160+15+5,qipan_y1+15+60+15+5,qipan_x1+15+160+15+160+5,qipan_y1+15+60+60+15+5); 
+   setfillcolor(RGB(130,218,220));
+   solidrectangle(qipan_x1+15+160+15,qipan_y1+15+60+15,qipan_x1+15+160+15+160,qipan_y1+15+60+60+15); 
+   r={qipan_x1+15+160+15,qipan_y1+15+60+15,qipan_x1+15+160+15+160,qipan_y1+15+60+60+15};
+   standard.lfHeight=35;
+  _tcscpy(standard.lfFaceName,_T("Consolas"));
+   settextstyle(&standard);
+   drawtext(_T("GAME OVER"),&r,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
    while(1)
    {
        MOUSEMSG m;
        m=GetMouseMsg();
        if(m.x<=qipan_x1+15+160+15+160&&m.x>=qipan_x1+15+160+15&&m.y<=qipan_y1+15+60+60+15&&m.y>=qipan_y1+15+60+15)
        {
-          flag2=true;
           if(m.uMsg==WM_LBUTTONDOWN)break;
           setfillcolor(RGB(53,129,129));
           solidrectangle(qipan_x1+15+160+15+5,qipan_y1+15+60+15+5,qipan_x1+15+160+15+160+5,qipan_y1+15+60+60+15+5); 
@@ -441,11 +447,9 @@ void gameover()
           _tcscpy(standard.lfFaceName,_T("Consolas"));
           settextstyle(&standard);
           drawtext(_T("GAME OVER"),&r,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
-          if(flag1!=flag2){FlushBatchDraw();flag1=true;}
        }
        else
        {
-          flag2=false;
           setfillcolor(RGB(53,129,129));
           solidrectangle(qipan_x1+15+160+15+5,qipan_y1+15+60+15+5,qipan_x1+15+160+15+160+5,qipan_y1+15+60+60+15+5); 
           setfillcolor(RGB(130,218,220));
@@ -455,7 +459,6 @@ void gameover()
           _tcscpy(standard.lfFaceName,_T("Consolas"));
           settextstyle(&standard);
           drawtext(_T("GAME OVER"),&r,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
-          if(flag1!=flag2){FlushBatchDraw();flag1=false;}
        }
    }
    EndBatchDraw();
@@ -529,10 +532,12 @@ bool check()
     for(int i=0;i<4;i++)
     for(int j=0;j<4;j++)
     if(!status[i][j])return true;
-    for(int i=0;i<3;i++)
+    for(int i=0;i<4;i++)
     for(int j=0;j<3;j++)
     if(status[i][j]==status[i][j+1])return true;
-    else if(status[i][j]==status[i+1][j])return true;
+    for(int i=0;i<4;i++)
+    for(int j=0;j<3;j++)
+    if(status[j][i]==status[j+1][i])return true;
     return false;
 }
 void produce()
