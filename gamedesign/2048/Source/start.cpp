@@ -16,8 +16,7 @@ void startui()
    cleardevice();
    windowtitle(L"开始界面");
    //初始化结构体
-   LOGFONT f;
-   MOUSEMSG m;
+   LOGFONT f;//存储字体属性
    RECT r{0,0,640,480};
    settextstyle(0,0,_T("Consolas"));
    gettextstyle(&f);
@@ -31,7 +30,7 @@ void startui()
    _tcscpy(f.lfFaceName,_T("黑体"));
    settextstyle(&f);
    drawtext(_T("2"),&r,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
-   Sleep(500);
+   Sleep(1000);
    cleardevice();
    //输出白字20
    settextcolor(WHITE);
@@ -39,7 +38,7 @@ void startui()
    _tcscpy(f.lfFaceName,_T("宋体"));
    settextstyle(&f);
    drawtext(_T("20"),&r,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
-   Sleep(500);
+   Sleep(1000);
    cleardevice();
    //输出蓝字204
    settextcolor(BLUE);
@@ -47,7 +46,7 @@ void startui()
    _tcscpy(f.lfFaceName,_T("楷体"));
    settextstyle(&f);
    drawtext(_T("204"),&r,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
-   Sleep(500);
+   Sleep(1000);
    cleardevice();
    //输出阴影部分
    settextcolor(BLACK);
@@ -58,10 +57,10 @@ void startui()
    //输出红字2048
    settextcolor(RED);
    drawtext(_T("2048"),&r,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
-   Sleep(500);
+   Sleep(1000);
 
    //输出Power by Group 7510
-   wchar_t s[23]=L"▂Powered by Group 7510";
+   wchar_t s[23]=L"▂Powered by Group 7510"; 
    wchar_t current[24];
    current[22]='\0';
    current[23]='\0';
@@ -81,7 +80,7 @@ void startui()
           }
           else current[j]=L' ';
       }
-      Wchar_tToString(str,current);
+      Wchar_tToString(str,current);//把wchar_t类型转换成string
       drawtext((LPCTSTR)str.c_str(),&r,DT_CENTER|DT_BOTTOM|DT_SINGLELINE);
       Sleep(200);
       settextcolor(GREEN);

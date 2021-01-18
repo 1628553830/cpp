@@ -13,6 +13,7 @@ LOGFONT standard;//字体参数
 RECT r;//矩形坐标
 int status[4][4]{};//棋子状态
 bool updatestatus[4][4]{};
+bool flag=false;
 int T_score,score;//分数
 int qipan_x1,qipan_y1,qipan_x2,qipan_y2;//棋盘坐标
 MOUSEMSG m;//鼠标消息
@@ -36,9 +37,10 @@ int main()
 {
     startui();
     setup();
+    show();
     while(1)
     {
-        show();
+        if(flag)show();
         updateWithInput();
         updateWithoutInput();
     }
@@ -106,7 +108,7 @@ void setup()
    updatestatus[x][y]=1;
    
 }
-void drawqipan(int x,int y)
+void drawqipan(int x,int y)//x,y表示坐标
 {
    BeginBatchDraw();
    RECT r;
@@ -371,13 +373,13 @@ void updateWithInput()
        char input;
        input=getch();
        if(input=='a'||input=='A')
-       {if(calulate(-1,0))produce();}
+       {if(calulate(-1,0)){produce();flag=true;}}
        else if(input=='s'||input=='S')
-       {if(calulate(0,1))produce();}
+       {if(calulate(0,1)){produce();flag=true;}}
        else if(input=='w'||input=='W')
-       {if(calulate(0,-1))produce();}
+       {if(calulate(0,-1)){produce();flag=true;}}
        else if(input=='d'||input=='D')
-       {if(calulate(1,0))produce();}
+       {if(calulate(1,0)){produce();flag=true;}}
        else if(input=='q'||input=='Q')
        {
            freopen("C:\\Users\\16285\\Desktop\\c\\gamedesign\\2048\\Score\\TOP.txt","w",stdout);
@@ -391,14 +393,6 @@ void updateWithInput()
 void updateWithoutInput()
 {
    T_score=T_score<score?score:T_score;
-   for(int i=0;i<4;i++)
-   for(int j=0;j<4;j++)
-   {
-       if(status[i][j]==2048)
-       {
-           gameover();
-       }
-   }
    if(!check())
    gameover();
 }
@@ -406,10 +400,11 @@ void show()
 {
 
    //显示动画
-   drawqipan(0,0);
+   drawqipan(0,0);//绘制棋盘
    shownum();//展示旧棋子
    shownewnum();//展示新棋子
    memset(updatestatus,0,sizeof(updatestatus));
+   flag=false;
 }
 int  ReadTopScore()
 {
