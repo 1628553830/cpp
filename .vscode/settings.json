@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "*.rh": "c",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "algorithm": "cpp",
+        "cmath": "cpp",
+        "ios": "cpp",
+        "climits": "cpp",
+        "xutility": "cpp"
     }
 }

@@ -7,7 +7,7 @@
 string str;
 void startui()
 {   
-   mciSendString(_T("open C:\\Users\\16285\\Desktop\\c\\gamedesign\\2048\\music\\1.mp3 alias bkmusic"),NULL,0,NULL);
+   mciSendString(_T("open C:\\Users\\Varocol\\Desktop\\c\\gamedesign\\2048\\music\\1.mp3 alias bkmusic"),NULL,0,NULL);
    mciSendString(_T("play bkmusic repeat"),NULL,0,NULL);
    //≥ı ºªØ±≥æ∞
    initgraph(640,480);

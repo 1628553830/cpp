@@ -382,7 +382,7 @@ void updateWithInput()
        {if(calulate(1,0)){produce();flag=true;}}
        else if(input=='q'||input=='Q')
        {
-           freopen("C:\\Users\\16285\\Desktop\\c\\gamedesign\\2048\\Score\\TOP.txt","w",stdout);
+           freopen("C:\\Users\\Varocol\\Desktop\\c\\gamedesign\\2048\\Score\\TOP.txt","w",stdout);
            printf("%d",T_score);
            fclose(stdout);
            closegraph();
@@ -408,7 +408,7 @@ void show()
 }
 int  ReadTopScore()
 {
-  freopen("C:\\Users\\16285\\Desktop\\c\\gamedesign\\2048\\Score\\TOP.txt","r",stdin);
+  freopen("C:\\Users\\Varocol\\Desktop\\c\\gamedesign\\2048\\Score\\TOP.txt","r",stdin);
   int a;
   scanf("%d",&a);
   fclose(stdin);
@@ -458,7 +458,7 @@ void gameover()
    }
    EndBatchDraw();
    closegraph();
-   freopen("C:\\Users\\16285\\Desktop\\c\\gamedesign\\2048\\Score\\TOP.txt","w",stdout);
+   freopen("C:\\Users\\Varocol\\Desktop\\c\\gamedesign\\2048\\Score\\TOP.txt","w",stdout);
    printf("%d",T_score);
    fclose(stdout);
    exit(0);
