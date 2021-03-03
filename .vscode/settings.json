@@ -6,6 +6,7 @@
         "cmath": "cpp",
         "ios": "cpp",
         "climits": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "ostream": "cpp"
     }
 }
