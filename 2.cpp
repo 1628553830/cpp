@@ -1,42 +1,39 @@
 #include<iostream>
-#include<stdlib.h>
-#include<cmath>
 using namespace std;
-int calculateday(int);
-int calculatesolarterm(int,int);
+string numplus(string,string);
+string zerogive(int);
 int main()
 {
-     
-     for(int i=1237;i<2473;i++)
-     {
-         bool flag=false;
-         for(int j=2000;j<2100;j++)
-         {
-             int temp=calculatesolarterm(j-1900,0);
-             for(int k=1;k<24&&temp<calculateday(i+1);k++)
-             {
-                 if(temp>=calculateday(i)) 
-                 {
-                     if((k-1)%2)flag=true;
-                 }
-                 temp=calculatesolarterm(j-1900,k);
-             }
-         }
-         if(!flag)
-         {
-             cout<<i<<endl;
-             cout<<1.6+29.5306*i+0.4*sin(1-0.45058*i)+0.1<<endl;
-         }
-     }
-     system("pause");
+    string a,b;
+    while(1)
+    {
+        cin>>a>>b;
+        cout<<numplus(a,b)<<endl;
+    }
 }
-int calculateday(int x)
+string numplus(string a,string b)
 {
-    double result=1.6+29.5306*x+0.4*sin(1-0.45058*x)+0.1;
+    bool flag=false;
+    string result;
+    if(a.size()<b.size())
+       a=zerogive(b.size()-a.size())+a;
+    else 
+       b=zerogive(a.size()-b.size())+b;
+    result+=zerogive(a.size());
+    for(int i=a.size()-1;i>=0;i--)
+    {
+       result[i]=(a[i]+b[i]-2*'0'+flag)%10+'0';
+       flag=(a[i]+b[i]-2*'0'+flag)/10;
+    }
+    if(flag)result="1"+result;
     return result;
 }
-int calculatesolarterm(int x,int y)
+string zerogive(int x)
 {
-    double result=365.242*x+6.2+15.22*y-1.9*sin(0.262*y);
-    return result;
+    string a="";
+    while(x--)
+    {
+        a+="0";
+    }
+    return a;
 }
