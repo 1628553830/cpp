@@ -10,7 +10,9 @@
         "ostream": "cpp",
         "xstring": "cpp",
         "vector": "cpp",
-        "array": "cpp"
+        "array": "cpp",
+        "cstring": "cpp",
+        "xlocale": "cpp"
     },
     "files.autoGuessEncoding": true
 }

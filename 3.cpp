@@ -9,5 +9,4 @@ int main()
       cout<<ps[0]<<" is a kind of flower\n";
       cin.get();
 
-
 }
