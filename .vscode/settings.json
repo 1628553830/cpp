@@ -12,7 +12,15 @@
         "vector": "cpp",
         "array": "cpp",
         "cstring": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "istream": "cpp",
+        "cstdlib": "cpp",
+        "deque": "cpp",
+        "initializer_list": "cpp",
+        "map": "cpp",
+        "set": "cpp",
+        "xtree": "cpp",
+        "utility": "cpp"
     },
-    "files.autoGuessEncoding": true
+    "files.autoGuessEncoding": true,
 }
