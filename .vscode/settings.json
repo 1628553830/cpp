@@ -20,7 +20,8 @@
         "map": "cpp",
         "set": "cpp",
         "xtree": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "xiosbase": "cpp"
     },
     "files.autoGuessEncoding": true,
 }
