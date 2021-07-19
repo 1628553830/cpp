@@ -6,6 +6,7 @@
 #include <math.h>
 #define line1 abs(0.2*sin(time))+0.1
 #define line2 exp(-time)
+#define M_PI       3.14159265358979323846   // pi
 using namespace std;
 const double speed_max = 25/3;
 const int xi = 0.8*1e5;

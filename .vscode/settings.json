@@ -21,7 +21,9 @@
         "set": "cpp",
         "xtree": "cpp",
         "utility": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "string": "cpp",
+        "cctype": "cpp"
     },
     "files.autoGuessEncoding": true,
 }
